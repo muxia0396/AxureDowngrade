@@ -64,7 +64,10 @@ jobs:
           $archive = "artifacts/AxureDowngrade-$version-windows-x64-portable.zip"
           $checksum = "artifacts/AxureDowngrade-$version-windows-x64-portable.sha256.txt"
           $notes = "docs/releases/v$version.md"
-          if (Test-Path -LiteralPath $notes) {
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release upload $tag $archive $checksum --clobber
+          } elseif (Test-Path -LiteralPath $notes) {
             gh release create $tag $archive $checksum --verify-tag --title "Axure Downgrade $tag" --notes-file $notes
           } else {
             gh release create $tag $archive $checksum --verify-tag --title "Axure Downgrade $tag" --generate-notes
