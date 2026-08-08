@@ -1,8 +1,21 @@
-# Axure Downgrade
+<p align="right">
+  <strong>简体中文</strong> · <a href="README_EN.md">English</a>
+</p>
 
-Axure Downgrade 是一款面向 Windows 的 Axure RP 文件降级工具，用于将 **Axure RP 11（`.rp`）文件转换为可由 Axure RP 9 打开和继续编辑的工程**。
+<div align="center">
+  <img src="desktop/public/app-logo-rounded.png" width="96" height="96" alt="Axure Downgrade Logo">
+  <h1>Axure Downgrade</h1>
+  <p><strong>把 Axure RP 11 文件转换为可由 Axure RP 9 打开和继续编辑的工程</strong></p>
+  <p>保留页面、文字、图片、基础样式与布局 · 本地处理 · 原文件保持不变</p>
+  <p>
+    <a href="https://github.com/muxia0396/AxureDowngrade/releases/latest"><img src="https://img.shields.io/github/v/release/muxia0396/AxureDowngrade?display_name=tag&style=flat-square" alt="Latest Release"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-PolyForm_Noncommercial_1.0.0-4f46e5?style=flat-square" alt="PolyForm Noncommercial License"></a>
+    <img src="https://img.shields.io/badge/platform-Windows_x64-0078d4?style=flat-square&logo=windows11" alt="Windows x64">
+    <img src="https://img.shields.io/badge/Tauri-2-24c8db?style=flat-square&logo=tauri&logoColor=white" alt="Tauri 2">
+  </p>
+</div>
 
-转换过程以保留静态设计结果为目标，包括页面结构、文字、图片、基础样式、绝对位置、页面层级和常见控件。Axure RP 11 专属能力及交互逻辑可能会在转换过程中被移除，并在转换报告中记录。
+Axure Downgrade 是一款面向 Windows 的 Axure RP 文件降级工具。转换过程以保留静态设计结果为目标，包括页面结构、文字、图片、基础样式、绝对位置、页面层级和常见控件。Axure RP 11 专属能力及交互逻辑可能会在转换过程中被移除，并在转换报告中记录。
 
 > [!IMPORTANT]
 > 本项目采用 [PolyForm Noncommercial License 1.0.0](LICENSE)，仅允许非商业用途。由于许可证限制商业使用，因此本项目属于“源码可用”项目，并非 OSI 定义的开源软件。商业使用需要获得许可方的单独书面授权。
