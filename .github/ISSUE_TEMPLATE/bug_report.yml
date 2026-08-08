@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a reproducible failure or incorrect conversion
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload confidential or proprietary RP files. Sanitize screenshots and logs before attaching them.
+  - type: input
+    id: version
+    attributes:
+      label: Axure Downgrade version
+      placeholder: 0.1.7
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2 x64
+    validations:
+      required: true
+  - type: input
+    id: source-version
+    attributes:
+      label: Source Axure RP version
+      placeholder: Axure RP 11.x
+    validations:
+      required: true
+  - type: input
+    id: error-code
+    attributes:
+      label: Error code
+      placeholder: ADG-1102
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Describe the smallest sequence that reproduces the issue
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed confidential client content, credentials and personal information
+          required: true

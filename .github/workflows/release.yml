@@ -1,0 +1,71 @@
+name: Build Windows release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Verify tag and manifest versions
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart('v')
+          $package = Get-Content desktop/package.json -Raw | ConvertFrom-Json
+          $tauri = Get-Content desktop/src-tauri/tauri.conf.json -Raw | ConvertFrom-Json
+          if ($package.version -ne $version -or $tauri.version -ne $version) {
+            throw "Tag version $version does not match package or Tauri version"
+          }
+
+      - name: Install frontend dependencies
+        working-directory: desktop
+        run: npm ci
+
+      - name: Test core
+        run: cargo test -p axure-core
+
+      - name: Build portable executable
+        working-directory: desktop
+        run: npm run tauri -- build --no-bundle
+
+      - name: Package release
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart('v')
+          ./tools/package-release.ps1 -Version $version -Force
+
+      - name: Create GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $version = $tag.TrimStart('v')
+          $archive = "artifacts/AxureDowngrade-$version-windows-x64-portable.zip"
+          $checksum = "artifacts/AxureDowngrade-$version-windows-x64-portable.sha256.txt"
+          $notes = "docs/releases/v$version.md"
+          if (Test-Path -LiteralPath $notes) {
+            gh release create $tag $archive $checksum --verify-tag --title "Axure Downgrade $tag" --notes-file $notes
+          } else {
+            gh release create $tag $archive $checksum --verify-tag --title "Axure Downgrade $tag" --generate-notes
+          }

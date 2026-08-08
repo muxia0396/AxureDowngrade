@@ -1,0 +1,71 @@
+{
+  "sourceVersion": "11-test-fixture",
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Nested layout",
+      "width": 1024,
+      "height": 768,
+      "widgets": [
+        {
+          "id": "group-1",
+          "name": "Positioned group",
+          "kind": "group",
+          "bounds": {
+            "x": 100,
+            "y": 40,
+            "width": 300,
+            "height": 200
+          },
+          "rotationDegrees": 0,
+          "visible": true,
+          "locked": false,
+          "text": null,
+          "style": {
+            "fill": null,
+            "border": null,
+            "opacity": null,
+            "cornerRadius": null,
+            "shadow": null,
+            "horizontalAlignment": null,
+            "verticalAlignment": null,
+            "imageResourceId": null
+          },
+          "children": [
+            {
+              "id": "rectangle-1",
+              "name": "Nested rectangle",
+              "kind": "rectangle",
+              "bounds": {
+                "x": 12,
+                "y": 18,
+                "width": 120,
+                "height": 44
+              },
+              "rotationDegrees": 0,
+              "visible": true,
+              "locked": false,
+              "text": null,
+              "style": {
+                "fill": null,
+                "border": null,
+                "opacity": null,
+                "cornerRadius": null,
+                "shadow": null,
+                "horizontalAlignment": null,
+                "verticalAlignment": null,
+                "imageResourceId": null
+              },
+              "children": [],
+              "sourceProperties": {}
+            }
+          ],
+          "sourceProperties": {}
+        }
+      ]
+    }
+  ],
+  "components": [],
+  "resources": [],
+  "metadata": {}
+}

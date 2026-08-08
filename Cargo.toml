@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/axure-core",
+  "crates/axure-lab",
+  "desktop/src-tauri",
+]
+
+[workspace.package]
+version = "0.1.7"
+edition = "2024"
+license = "PolyForm-Noncommercial-1.0.0"

@@ -1,0 +1,11 @@
+[package]
+name = "axure-lab"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Command-line research tool for Axure RP file format analysis"
+
+[dependencies]
+axure-core = { path = "../axure-core" }
+serde_json = "1"
+

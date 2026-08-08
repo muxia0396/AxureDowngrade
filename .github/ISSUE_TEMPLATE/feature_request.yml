@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a noncommercial project improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What limitation or workflow problem should be addressed
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: license
+    attributes:
+      label: License awareness
+      options:
+        - label: I understand that this project is licensed for noncommercial use only
+          required: true

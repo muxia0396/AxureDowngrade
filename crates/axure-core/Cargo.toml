@@ -1,0 +1,12 @@
+[package]
+name = "axure-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Format analysis and static document conversion core for Axure RP files"
+
+[dependencies]
+flate2 = "1.1"
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.10"
